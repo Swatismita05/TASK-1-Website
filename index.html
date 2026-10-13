@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NexaGrow Digital - Responsive company website created for Full Stack Development Task 1." />
+  <title>NexaGrow Digital | Task 1</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: block; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+      <button onclick="showPage('home')" class="text-2xl font-extrabold text-emerald-600">
+        Nexa<span class="text-slate-900">Grow</span>
+      </button>
+
+      <!-- Desktop navigation -->
+      <div class="hidden md:flex items-center gap-8 font-medium">
+        <button onclick="showPage('home')" class="nav-link hover:text-emerald-600">Home</button>
+        <button onclick="showPage('about')" class="nav-link hover:text-emerald-600">About</button>
+        <button onclick="showPage('services')" class="nav-link hover:text-emerald-600">Services</button>
+        <button onclick="showPage('contact')" class="nav-link hover:text-emerald-600">Contact</button>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menuBtn" class="md:hidden text-2xl text-slate-800" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile navigation -->
+    <div id="mobileMenu" class="mobile-menu md:hidden border-t border-slate-200 bg-white">
+      <div class="px-5 py-4 space-y-3 font-medium">
+        <button onclick="showPage('home'); closeMenu()" class="block w-full text-left py-2">Home</button>
+        <button onclick="showPage('about'); closeMenu()" class="block w-full text-left py-2">About</button>
+        <button onclick="showPage('services'); closeMenu()" class="block w-full text-left py-2">Services</button>
+        <button onclick="showPage('contact'); closeMenu()" class="block w-full text-left py-2">Contact</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+      <section class="bg-gradient-to-br from-emerald-700 to-teal-600 text-white">
+        <div class="max-w-7xl mx-auto px-5 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="uppercase tracking-widest text-emerald-100 font-semibold mb-4">Digital Growth Partner</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+              Grow Your Business With Better Digital Solutions
+            </h1>
+            <p class="text-lg text-emerald-50 mb-8 max-w-xl">
+              NexaGrow Digital helps businesses build modern websites, engaging user experiences,
+              and practical digital marketing solutions.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button onclick="showPage('services')" class="bg-white text-emerald-700 px-6 py-3 rounded-xl font-bold hover:bg-emerald-50 transition">
+                Explore Services
+              </button>
+              <button onclick="showPage('contact')" class="border border-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 transition">
+                Contact Us
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white/10 rounded-3xl p-8 border border-white/20">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white/10 rounded-2xl p-6">
+                <i class="fa-solid fa-code text-3xl mb-4"></i>
+                <h3 class="font-bold">Web Development</h3>
+              </div>
+              <div class="bg-white/10 rounded-2xl p-6">
+                <i class="fa-solid fa-pen-ruler text-3xl mb-4"></i>
+                <h3 class="font-bold">UI/UX Design</h3>
+              </div>
+              <div class="bg-white/10 rounded-2xl p-6">
+                <i class="fa-solid fa-bullhorn text-3xl mb-4"></i>
+                <h3 class="font-bold">Marketing</h3>
+              </div>
+              <div class="bg-white/10 rounded-2xl p-6">
+                <i class="fa-solid fa-chart-line text-3xl mb-4"></i>
+                <h3 class="font-bold">Business Growth</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <p class="text-emerald-600 font-bold">WHY NEXAGROW?</p>
+          <h2 class="text-3xl md:text-4xl font-extrabold mt-2">Simple, Professional & Result-Focused</h2>
+          <p class="text-slate-600 mt-4">We focus on clean design, responsive experiences and practical digital solutions.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="bg-white p-7 rounded-2xl shadow-sm border border-slate-100">
+            <i class="fa-solid fa-mobile-screen-button text-3xl text-emerald-600"></i>
+            <h3 class="text-xl font-bold mt-5">Responsive Design</h3>
+            <p class="text-slate-600 mt-3">Web experiences that work smoothly on mobile, tablet and desktop screens.</p>
+          </article>
+          <article class="bg-white p-7 rounded-2xl shadow-sm border border-slate-100">
+            <i class="fa-solid fa-bolt text-3xl text-emerald-600"></i>
+            <h3 class="text-xl font-bold mt-5">Fast Experience</h3>
+            <p class="text-slate-600 mt-3">Clean layouts and optimized content for a better browsing experience.</p>
+          </article>
+          <article class="bg-white p-7 rounded-2xl shadow-sm border border-slate-100">
+            <i class="fa-solid fa-handshake text-3xl text-emerald-600"></i>
+            <h3 class="text-xl font-bold mt-5">Business Focus</h3>
+            <p class="text-slate-600 mt-3">Solutions designed around business goals rather than unnecessary complexity.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 pb-20">
+        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 class="text-3xl font-bold">Ready to grow your business?</h2>
+            <p class="text-slate-300 mt-2">Let's discuss your next digital project.</p>
+          </div>
+          <button onclick="showPage('contact')" class="bg-emerald-500 hover:bg-emerald-400 px-7 py-3 rounded-xl font-bold">Get Started</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- ABOUT PAGE -->
+    <section id="about" class="page">
+      <section class="bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-5 py-20">
+          <p class="text-emerald-400 font-bold">ABOUT US</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold mt-2">Building Digital Experiences That Matter</h1>
+          <p class="text-slate-300 max-w-2xl mt-5 text-lg">A professional digital company focused on websites, design and growth solutions.</p>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 py-20 grid md:grid-cols-2 gap-12 items-center">
+        <div class="bg-emerald-100 rounded-3xl p-10">
+          <i class="fa-solid fa-building text-7xl text-emerald-700"></i>
+        </div>
+        <div>
+          <p class="text-emerald-600 font-bold">OUR STORY</p>
+          <h2 class="text-3xl font-extrabold mt-2">From ideas to useful digital products</h2>
+          <p class="text-slate-600 mt-5 leading-7">
+            NexaGrow Digital is a fictional company created for this internship assignment.
+            The company concept is built around helping small and growing businesses establish a stronger online presence.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-5 mt-8">
+            <div class="border rounded-2xl p-5">
+              <h3 class="font-bold text-lg">Our Mission</h3>
+              <p class="text-slate-600 mt-2">Make quality digital solutions accessible to growing businesses.</p>
+            </div>
+            <div class="border rounded-2xl p-5">
+              <h3 class="font-bold text-lg">Our Vision</h3>
+              <p class="text-slate-600 mt-2">Help businesses grow through simple and effective technology.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 pb-20">
+        <div class="text-center mb-10">
+          <p class="text-emerald-600 font-bold">OUR TEAM</p>
+          <h2 class="text-3xl font-extrabold mt-2">Meet the People Behind NexaGrow</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <article class="bg-white border rounded-2xl p-7 text-center shadow-sm">
+            <div class="w-20 h-20 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-2xl font-bold">AK</div>
+            <h3 class="font-bold text-xl mt-4">Arjun Kumar</h3>
+            <p class="text-emerald-600">Founder & Strategist</p>
+          </article>
+          <article class="bg-white border rounded-2xl p-7 text-center shadow-sm">
+            <div class="w-20 h-20 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-2xl font-bold">PM</div>
+            <h3 class="font-bold text-xl mt-4">Priya Mehta</h3>
+            <p class="text-emerald-600">UI/UX Designer</p>
+          </article>
+          <article class="bg-white border rounded-2xl p-7 text-center shadow-sm">
+            <div class="w-20 h-20 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-2xl font-bold">RS</div>
+            <h3 class="font-bold text-xl mt-4">Rahul Singh</h3>
+            <p class="text-emerald-600">Web Developer</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- SERVICES PAGE -->
+    <section id="services" class="page">
+      <section class="bg-emerald-700 text-white">
+        <div class="max-w-7xl mx-auto px-5 py-20">
+          <p class="text-emerald-100 font-bold">OUR SERVICES</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold mt-2">Digital Services For Growing Businesses</h1>
+          <p class="text-emerald-50 max-w-2xl mt-5 text-lg">Practical services designed to improve your online presence.</p>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 py-20">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="bg-white border rounded-2xl p-7 hover:-translate-y-1 transition shadow-sm">
+            <i class="fa-solid fa-code text-3xl text-emerald-600"></i>
+            <h2 class="text-xl font-bold mt-5">Web Development</h2>
+            <p class="text-slate-600 mt-3">Responsive business websites built with modern frontend technologies.</p>
+          </article>
+          <article class="bg-white border rounded-2xl p-7 hover:-translate-y-1 transition shadow-sm">
+            <i class="fa-solid fa-pen-ruler text-3xl text-emerald-600"></i>
+            <h2 class="text-xl font-bold mt-5">UI/UX Design</h2>
+            <p class="text-slate-600 mt-3">Clean and user-friendly interfaces that make digital products easier to use.</p>
+          </article>
+          <article class="bg-white border rounded-2xl p-7 hover:-translate-y-1 transition shadow-sm">
+            <i class="fa-solid fa-bullhorn text-3xl text-emerald-600"></i>
+            <h2 class="text-xl font-bold mt-5">Digital Marketing</h2>
+            <p class="text-slate-600 mt-3">Strategies that help businesses reach and engage their target audience.</p>
+          </article>
+          <article class="bg-white border rounded-2xl p-7 hover:-translate-y-1 transition shadow-sm">
+            <i class="fa-solid fa-magnifying-glass-chart text-3xl text-emerald-600"></i>
+            <h2 class="text-xl font-bold mt-5">SEO</h2>
+            <p class="text-slate-600 mt-3">Search-friendly content and technical improvements for better visibility.</p>
+          </article>
+          <article class="bg-white border rounded-2xl p-7 hover:-translate-y-1 transition shadow-sm">
+            <i class="fa-solid fa-chart-pie text-3xl text-emerald-600"></i>
+            <h2 class="text-xl font-bold mt-5">Business Analytics</h2>
+            <p class="text-slate-600 mt-3">Simple data insights to support better business decisions.</p>
+          </article>
+          <article class="bg-white border rounded-2xl p-7 hover:-translate-y-1 transition shadow-sm">
+            <i class="fa-solid fa-headset text-3xl text-emerald-600"></i>
+            <h2 class="text-xl font-bold mt-5">Digital Consulting</h2>
+            <p class="text-slate-600 mt-3">Guidance for businesses planning their next digital transformation.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="page">
+      <section class="bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-5 py-20">
+          <p class="text-emerald-400 font-bold">CONTACT US</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold mt-2">Let's Start a Conversation</h1>
+          <p class="text-slate-300 max-w-2xl mt-5">Tell us what you need and our team will get back to you.</p>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 py-20 grid lg:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-3xl font-extrabold">Get in touch</h2>
+          <p class="text-slate-600 mt-4">We would be happy to discuss your business requirements.</p>
+
+          <div class="space-y-5 mt-8">
+            <div class="flex gap-4 items-start">
+              <i class="fa-solid fa-envelope text-emerald-600 text-xl mt-1"></i>
+              <div><h3 class="font-bold">Email</h3><p class="text-slate-600">hello@nexagrow.example</p></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <i class="fa-solid fa-phone text-emerald-600 text-xl mt-1"></i>
+              <div><h3 class="font-bold">Phone</h3><p class="text-slate-600">+91 98765 43210</p></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <i class="fa-solid fa-location-dot text-emerald-600 text-xl mt-1"></i>
+              <div><h3 class="font-bold">Location</h3><p class="text-slate-600">Bhubaneswar, Odisha, India</p></div>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="bg-white border rounded-3xl p-7 md:p-9 shadow-sm" novalidate>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block font-semibold mb-2">Name *</label>
+              <input id="name" name="name" type="text" class="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Your name">
+              <p id="nameError" class="text-red-600 text-sm mt-1 hidden"></p>
+            </div>
+            <div>
+              <label for="email" class="block font-semibold mb-2">Email *</label>
+              <input id="email" name="email" type="email" class="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="you@example.com">
+              <p id="emailError" class="text-red-600 text-sm mt-1 hidden"></p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <label for="phone" class="block font-semibold mb-2">Phone</label>
+            <input id="phone" name="phone" type="tel" class="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="+91">
+          </div>
+
+          <div class="mt-5">
+            <label for="message" class="block font-semibold mb-2">Message *</label>
+            <textarea id="message" name="message" rows="5" class="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Tell us about your project"></textarea>
+            <p id="messageError" class="text-red-600 text-sm mt-1 hidden"></p>
+          </div>
+
+          <button type="submit" class="mt-6 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition">
+            Send Message
+          </button>
+
+          <p id="successMessage" class="hidden mt-4 rounded-xl bg-emerald-50 text-emerald-700 p-4 font-semibold">
+            Thank you! Your message has been validated successfully.
+          </p>
+        </form>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-300">
+    <div class="max-w-7xl mx-auto px-5 py-12 grid md:grid-cols-3 gap-10">
+      <div>
+        <h2 class="text-2xl font-extrabold text-white">Nexa<span class="text-emerald-400">Grow</span></h2>
+        <p class="mt-4 max-w-sm">Professional digital solutions for businesses ready to grow online.</p>
+      </div>
+
+      <div>
+        <h3 class="text-white font-bold mb-4">Quick Links</h3>
+        <div class="space-y-2">
+          <button onclick="showPage('home')" class="block hover:text-emerald-400">Home</button>
+          <button onclick="showPage('about')" class="block hover:text-emerald-400">About</button>
+          <button onclick="showPage('services')" class="block hover:text-emerald-400">Services</button>
+          <button onclick="showPage('contact')" class="block hover:text-emerald-400">Contact</button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white font-bold mb-4">Follow Us</h3>
+        <div class="flex gap-4 text-xl">
+          <a href="#" aria-label="Facebook" class="hover:text-emerald-400"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram" class="hover:text-emerald-400"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-emerald-400"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 text-center py-5 text-sm">
+      © 2026 NexaGrow Digital. Created for Full Stack Development Task 1.
+    </div>
+  </footer>
+
+  <script>
+    // Page navigation: provides four website views in one HTML file.
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      const selectedPage = document.getElementById(pageId);
+      if (selectedPage) {
+        selectedPage.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        history.replaceState(null, '', '#' + pageId);
+      }
+    }
+
+    // Mobile hamburger menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // Contact form validation
+    const contactForm = document.getElementById('contactForm');
+
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const messageError = document.getElementById('messageError');
+      const successMessage = document.getElementById('successMessage');
+
+      [nameError, emailError, messageError].forEach(el => {
+        el.classList.add('hidden');
+        el.textContent = '';
+      });
+      successMessage.classList.add('hidden');
+
+      let valid = true;
+
+      if (name.value.trim().length < 2) {
+        nameError.textContent = 'Please enter your name.';
+        nameError.classList.remove('hidden');
+        valid = false;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email.value.trim())) {
+        emailError.textContent = 'Please enter a valid email address.';
+        emailError.classList.remove('hidden');
+        valid = false;
+      }
+
+      if (message.value.trim().length < 10) {
+        messageError.textContent = 'Message must contain at least 10 characters.';
+        messageError.classList.remove('hidden');
+        valid = false;
+      }
+
+      if (valid) {
+        successMessage.classList.remove('hidden');
+        contactForm.reset();
+      }
+    });
+
+    // Open a page from the URL hash.
+    const initialPage = window.location.hash.replace('#', '');
+    if (['home', 'about', 'services', 'contact'].includes(initialPage)) {
+      showPage(initialPage);
+    }
+  </script>
+
+</body>
+</html>
